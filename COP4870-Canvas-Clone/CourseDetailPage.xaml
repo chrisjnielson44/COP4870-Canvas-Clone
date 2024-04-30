@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COP4870_Canvas_Clone.CourseDetailPage"
+             Title="Course Details">
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30,30">
+            <!-- Display course details and modules here -->
+            <!-- Example: A ListView for modules -->
+            <ListView x:Name="ModulesListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Description}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -4,12 +4,22 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:COP4870_Canvas_Clone"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <!-- Student Dashboard -->
+    <FlyoutItem Title="Student Dashboard" Icon="student_dashboard_icon.png">
+        <ShellContent
+            Title="Student Dashboard"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="StudentDashboard" />
+    </FlyoutItem>
+
+    <!-- Teacher Dashboard -->
+    <FlyoutItem Title="Teacher Dashboard" Icon="teacher_dashboard_icon.png">
+        <ShellContent
+            Title="Teacher Dashboard"
+            ContentTemplate="{DataTemplate local:TeacherDashboardPage}"
+            Route="TeacherDashboard" />
+    </FlyoutItem>
 
 </Shell>
-

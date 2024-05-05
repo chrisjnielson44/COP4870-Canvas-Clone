@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COP4870_Canvas_Clone.AddCoursePage"
+             Title="Add New Course"
+             >
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30">
+
+            <Label Text="Enter Course Details" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+            <!-- Course Name Entry -->
+            <Entry x:Name="CourseNameEntry" Placeholder="Course Name" FontSize="18"/>
+
+            <!-- Course Code Entry -->
+            <Entry x:Name="CourseCodeEntry" Placeholder="Course Code" FontSize="18"/>
+
+            <!-- Course Description Editor -->
+            <Editor x:Name="CourseDescriptionEditor" Placeholder="Course Description" HeightRequest="150" AutoSize="TextChanges"/>
+
+            <!-- Add Button -->
+            <Button Text="Add Course"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Clicked="OnAddCourseClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

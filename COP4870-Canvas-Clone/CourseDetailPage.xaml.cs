@@ -1,4 +1,5 @@
-﻿namespace COP4870_Canvas_Clone;
+﻿
+namespace COP4870_Canvas_Clone;
 
 public partial class CourseDetailPage : ContentPage
 {

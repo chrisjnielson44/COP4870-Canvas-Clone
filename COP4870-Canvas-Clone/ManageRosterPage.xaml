@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COP4870_Canvas_Clone.ManageRosterPage"
+             Title="Manage Roster">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="30">
+
+            <Label Text="Select Student" />
+            <Picker x:Name="StudentPicker"
+                    SelectedIndexChanged="OnStudentSelected">
+                <!-- ItemsSource set in code-behind -->
+            </Picker>
+
+            <Label Text="Select Coruse" />
+            <Picker x:Name="CoursePicker"
+                    SelectedIndexChanged="OnAddStudentToCourse">
+                <!-- ItemsSource set in code-behind -->
+            </Picker>
+
+
+
+            <!-- Displaying student information -->
+            <Label Text="Enrolled Courses:" />
+    <CollectionView x:Name="CoursesCollectionView">
+   <CollectionView.ItemTemplate>
+    <DataTemplate>
+        <StackLayout Padding="10">
+            <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="White" />
+            <CollectionView ItemsSource="{Binding EnrolledStudents}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Name}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </DataTemplate>
+</CollectionView.ItemTemplate>
+
+</CollectionView>
+
+            <Button Text="Refresh"
+        Clicked="OnRefreshClicked" />
+
+
+     <!--Add a new Picker for selecting students to delete 
+            <Label Text="Delete Student"></Label>
+<Picker x:Name="DeleteStudentPicker" />
+
+ Add a button to trigger the delete action--> 
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

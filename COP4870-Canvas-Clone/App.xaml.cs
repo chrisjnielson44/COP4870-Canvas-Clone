@@ -6,7 +6,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+        MainPage = new AppShell();  // Ensures that Shell is used as the main page
+    }
 }
 

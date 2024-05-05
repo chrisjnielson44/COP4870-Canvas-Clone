@@ -3,51 +3,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="COP4870_Canvas_Clone.TeacherDashboardPage"
              BackgroundColor="White">
- <ScrollView>
+    <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="30,30">
 
             <!-- Button to Add Students -->
             <Button Text="Add Student"
                     Clicked="OnAddStudentClicked"
-                    BackgroundColor="Black"
+                    BackgroundColor="Maroon"
                     TextColor="White"
                     FontAttributes="Bold"/>
 
             <!-- Button to Add Courses -->
             <Button Text="Add Course"
                     Clicked="OnAddCourseClicked"
-                         BackgroundColor="Black"
-                         TextColor="White"
+                    BackgroundColor="Maroon"
+                    TextColor="White"
                     FontAttributes="Bold"/>
 
             <!-- Button to Manage Course Rosters -->
             <Button Text="Manage Course Rosters"
                     Clicked="OnManageRostersClicked"
-                         BackgroundColor="Black"
-                         TextColor="White"
+                    BackgroundColor="Maroon"
+                    TextColor="White"
                     FontAttributes="Bold"/>
 
             <!-- Button to Add Modules to Courses -->
             <Button Text="Add Modules to Course"
                     Clicked="OnAddModulesClicked"
-                         BackgroundColor="Black"
-                         TextColor="White"
+                    BackgroundColor="Maroon"
+                    TextColor="White"
                     FontAttributes="Bold"/>
 
-            <!-- Placeholder for Course Details and Modules Overview -->
-            <!-- This could be implemented as a selectable list of courses that, when tapped, navigate to a detailed view page for the course -->
-            <!-- For simplicity, let's assume we're adding a ListView for course overview -->
-            <Label Text="Courses Overview" FontAttributes="Bold" TextColor="Black" FontSize="24"
-                    />
-          <ListView x:Name="CoursesListView"
-          ItemSelected="OnCourseSelected">
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <TextCell Text="{Binding Name}" Detail="{Binding Code}"/>
-        </DataTemplate>
-    </ListView.ItemTemplate>
-</ListView>
+            <!-- Button to Add Assignments to Courses -->
+            <Button Text="Add Assignments to Course"
+                    Clicked="OnAddAssignmentsClicked"
+                    BackgroundColor="Maroon"
+                    TextColor="White"
+                    FontAttributes="Bold"/>
 
+
+            <!-- Courses Overview Section -->
+            <Label Text="Courses Overview" FontAttributes="Bold" TextColor="Maroon" FontSize="24"/>
+            
+            <!-- Placeholder for a ListView to display course details -->
+
+<CollectionView x:Name="CoursesCollectionView">
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <StackLayout Padding="10" BackgroundColor="#f0f0f0">
+                <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Black"/>
+                <Label Text="{Binding StudentCount, StringFormat='Students Enrolled: {0}'}" TextColor="Black"/>
+                <Label Text="Modules:" TextColor="Black" FontAttributes="Bold"/>
+                <Label Text="{Binding ModulesNames}" TextColor="Black"/>
+                <Label Text="Assignments:" TextColor="Black" FontAttributes="Bold"/>
+                <Label Text="{Binding AssignmentsNames}" TextColor="Black"/>
+            </StackLayout>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+</CollectionView>
+
+
+
+
+
+
+                   <Button Text="Refresh" BackgroundColor="black" TextColor="white"
+        Clicked="OnRefreshClicked" />
+
+
+      
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -2,77 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="COP4870_Canvas_Clone.MainPage"
-             Style="{StaticResource WhiteBackgroundPageStyle}">
-
-
+             Title="Student Dashboard">
     <ScrollView>
-        <VerticalStackLayout Spacing="25" Padding="30,0">
+        <VerticalStackLayout Spacing="25" Padding="30">
+            <Label Text="Pick a Student"></Label>
+            <Picker x:Name="StudentPicker" SelectedIndexChanged="StudentPicker_SelectedIndexChanged">
+                <!-- ItemsSource set in code-behind -->
+            </Picker>
 
-            <!-- Student Name -->
-            <Label x:Name="StudentNameLabel"
-                   Text="Student Name: Placeholder"
-                   FontSize="24"
-                   HorizontalOptions="Start"
-                   Padding="10" Margin="10"
-                   TextColor="Black"/>
-                   
-            <!-- Courses Overview -->
-            <Label Text="Your Courses" FontSize="20" FontAttributes="Bold" Padding="10" Margin="10" TextColor="Black"/>
-            <CollectionView x:Name="CoursesCollectionView" ItemsLayout="VerticalList">
+            <Label Text="Courses Overview" FontSize="20" FontAttributes="Bold" Padding="10" Margin="10" TextColor="White"/>
+            <CollectionView x:Name="CoursesCollectionView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame CornerRadius="10" Padding="10" Margin="5" BorderColor="LightGray">
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18"/>
-                                <Label Text="{Binding Code}" FontSize="16"/>
-                            </VerticalStackLayout>
-                        </Frame>
+                        <StackLayout Padding="10" BackgroundColor="#f0f0f0">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="{Binding ModulesNames}" TextColor="Black"/>
+                            <Label Text="{Binding AssignmentsNames}" TextColor="Black"/>
+                        </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
-               <Button Text="Add Class"
-                       BackgroundColor="Maroon"
-                    HorizontalOptions="Fill"
-                    Clicked="OnAddClassClicked"
-                    TextColor="White"/>
-
-            <!-- Assignments Overview -->
-            <Label Text="Upcoming Assignments" FontSize="20" FontAttributes="Bold" Padding="10" Margin="10"  TextColor="Black"/>
-            <CollectionView x:Name="AssignmentsCollectionView" ItemsLayout="VerticalList">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame CornerRadius="10" Padding="10" Margin="5" BorderColor="LightGray">
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18"/>
-                                <Label Text="{Binding DueDate, StringFormat='Due {0:MM/dd/yyyy}'}" FontSize="16"/>
-                            </VerticalStackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-                     <Label Text="Grades Overview" FontSize="20" FontAttributes="Bold" Padding="10" Margin="10" TextColor="Black"/>
-            <CollectionView x:Name="GradesCollectionView" ItemsLayout="VerticalList">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame CornerRadius="10" Padding="10" Margin="5" BorderColor="LightGray">
-                            <VerticalStackLayout>
-                                <Label Text="{Binding CourseName}" FontAttributes="Bold" FontSize="18"/>
-                                <Label Text="{Binding Grade}" FontSize="16"/>
-                                <!-- Add more details as needed -->
-                            </VerticalStackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <!-- Optional: Notifications Section -->
-
-            <!-- The Add Class button can be uncommented and used if students have the ability to add classes themselves -->
-                  
-
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
-
